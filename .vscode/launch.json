@@ -1,0 +1,73 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug Current File",
+            "skipFiles": ["<node_internals>/**"],
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "args": []
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug Current File with Args",
+            "skipFiles": ["<node_internals>/**"],
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "args": [
+                "${input:scriptArgs}"
+            ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Debug Shot Marker Scripts",
+            "skipFiles": ["<node_internals>/**"],
+            "program": "${workspaceFolder}/${input:scriptFile}",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "args": [
+                "${input:backupDir}",
+                "${input:outputFile}"
+            ]
+        }
+    ],
+    "inputs": [
+        {
+            "id": "scriptFile",
+            "description": "Select script to debug",
+            "type": "pickString",
+            "options": [
+                "extract_backup.js",
+                "backup_reader.js", 
+                "extract_json.js",
+                "test_shot_decode.js",
+                "explore_strings.js",
+                "project_status.js"
+            ]
+        },
+        {
+            "id": "backupDir",
+            "description": "Backup directory (optional)",
+            "type": "promptString",
+            "default": "SM_backup_May_16_Vic_Final"
+        },
+        {
+            "id": "outputFile", 
+            "description": "Output file (optional)",
+            "type": "promptString",
+            "default": "debug_output.json"
+        },
+        {
+            "id": "scriptArgs",
+            "description": "Script arguments (space separated)",
+            "type": "promptString",
+            "default": "SM_backup_May_16_Vic_Final debug_output.json"
+        }
+    ]
+}

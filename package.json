@@ -1,0 +1,15 @@
+{
+  "name": "shot-marker-backup-reader",
+  "version": "1.0.0",
+  "description": "Tool to read Shot Marker backup data",
+  "main": "backup_reader.js",
+  "scripts": {
+    "start": "node backup_reader.js",
+    "test": "node test_shot_decode.js"
+  },
+  "dependencies": {
+    "zlib": "^1.0.5"
+  },
+  "author": "",
+  "license": "ISC"
+}
